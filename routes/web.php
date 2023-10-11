@@ -34,11 +34,14 @@ require __DIR__.'/auth.php';
 
 Route::get('/user', [UserController::class, 'index'])->name('user.daftarPengguna');
 Route::get('/userRegistration', [UserController::class, 'create'])->name('user.registrasi');
-Route::post('/userStore', [UserController::class, 'store'])->name('user.daftarPengguna');
+Route::post('/userStore', [UserController::class, 'store'])->name('user.infoPengguna');
 Route::get('/userView/{user}', [UserController::class, 'show'])->name('user.infoPengguna');
 
 Route::get('/koleksi', [CollectionController::class, 'index'])->name('koleksi.daftarKoleksi');
 Route::get('/koleksiTambah', [CollectionController::class, 'create'])->name('koleksi.registrasi');
-Route::post('/koleksiStore', [CollectionController::class, 'store'])->name('koleksi.daftarKoleksi');
+Route::post('/koleksiStore', [CollectionController::class, 'store'])->name('koleksi.store');
 Route::get('/koleksiView/{collection}', [CollectionController::class, 'show'])->name('koleksi.infoKoleksi');
+
+//Nama : Putri Rahel Patrisia
+//Nim : 6706223161
 

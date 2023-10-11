@@ -17,6 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $table = 'users';
+
     protected $fillable = [
         'username',
         'fullname',
@@ -48,3 +51,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 }
+
+// -- Nama : Putri Rahel Patrisia
+// -- Nim : 6706223161
+

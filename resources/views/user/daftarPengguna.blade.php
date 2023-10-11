@@ -1,16 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Pengguna</title>
-</head>
-<body>
-    <h1>Daftar Pengguna</h1>
-    <ul>
+<resources>
+<views>
+<users>
+<index class="blade php"></index>
+
+<h1>Daftar Pengguna</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fullname</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
         @foreach($users as $user)
-            <li>{{ $user->name }} - {{ $user->email }}</li>
+        <tr>
+            <td>{{ $user->id }}</td>
+            <td>{{ $user->fullname }}</td>
+            <td>{{ $user->email }}</td>
+        </tr>
         @endforeach
-    </ul>
-</body>
-</html>
+    </tbody>
+</table>
+
+// -- Nama : Putri Rahel Patrisia
+// -- Nim : 6706223161

@@ -17,3 +17,5 @@ class Collection extends Model
     ];
 }
 
+// -- Nama : Putri Rahel Patrisia
+// -- Nim : 6706223161

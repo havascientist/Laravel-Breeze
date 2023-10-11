@@ -40,25 +40,23 @@ class RegisteredUserController extends Controller
             'phoneNumber' => ['required', 'string', 'max:20'], // Pastikan ini sesuai dengan nama kolom dalam formulir
             'jenis_kelamin' => ['required','integer', 'min:0', 'max:1'], // Validasi untuk jenis_kelamin
             'agama' => ['required', 'string', 'max:20'], // Validasi untuk agama
-        ]);
-                
+        ]);                
         
-
         $user = User::create([
             'username' => $request->username,
-           'fullname' => $request->fullname,
-           'email' => $request->email,
-           'password' =>Hash::make($request->password),
-           'address' => $request->adress,
-           'birthdate' => $request->birthdate,
-           'phonenumber' => $request->phonenumber,
-           'jenis_kelamin' => $request->jenis_kelamin,
-           'agama' => $request->agama,
+            'fullname' => $request->fullname,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'address' => $request->address,
+            'birthdate' => $request->birthdate,
+            'phoneNumber' => $request->phoneNumber,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'agama' => $request->agama,
         ]);
-
+        
         event(new Registered($user));
 
-        //Auth::login($user);
+        Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
     }

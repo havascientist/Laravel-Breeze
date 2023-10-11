@@ -42,3 +42,5 @@ class UserController extends Controller
         return view('user.infoPengguna', compact('user'));
     }
 }
+// -- Nama : Putri Rahel Patrisia
+// -- Nim : 6706223161

@@ -24,7 +24,9 @@ class CollectionController extends Controller
         $request->validate([
             'namaKoleksi' => 'required|string|max:100',
             'jenisKoleksi' => 'required|integer|in:1,2,3',
-            'createdAt' => 'required|date',
+            'createdAt' => 'required|date',                                         // Nama : Putri Rahel Patrisia
+                                                                                    // Nim : 6706223161
+            
             'jumlahKoleksi' => 'required|integer',
         ]);
 
