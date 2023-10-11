@@ -50,7 +50,7 @@
     <x-text-input id="birthdate" class="block mt-1 w-full" type="date" name="birthdate" :value="old('birthdate')" required autocomplete="birthdate" />
     <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
 </div>
-                                                        {{-- ACHMAD DANI SAPUTRA | 6706223131 --}}
+                                                        
 <!-- PhoneNumber -->
 <div>
     <x-input-label for="phoneNumber" :value="__('Nomor Telepon')" />
