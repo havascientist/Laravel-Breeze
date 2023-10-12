@@ -1,19 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Koleksi</title>
-</head>
-<body>
-    <h1>Daftar Koleksi</h1>
-    <ul>
-        @foreach($collections as $collection)
-            <li>{{ $collection->namaKoleksi }} - {{ $collection->jenisKoleksi }} - {{ $collection->createdAt }}</li>
-        @endforeach
-    </ul>
-</body>
-</html>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Daftar Nama Koleksi') }}
+        </h2>
+    </x-slot>
 
-// -- Nama : Putri Rahel Patrisia
-// -- Nim : 6706223161
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 25%
+        }
+
+        th, td {
+            border: 1px solid #ffffff;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #fffbfb;
+        }
+
+        .tulisan1{
+            color: #fffbfb;
+        }
+    </style>
+<br><br>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Koleksi</th>
+                <th>Jenis Koleksi</th>
+                <th>Tanggal Dibuat</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($collections as $collection)
+                <tr>
+                    <td class = "tulisan1">{{ $collection->namaKoleksi }}</td>
+                    <td class = "tulisan1">{{ $collection->jenisKoleksi }}</td>
+                    <td class = "tulisan1">{{ $collection->createdAt }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</x-app-layout>

@@ -19,27 +19,25 @@ class CollectionController extends Controller
     }
 
     public function store(Request $request)
-    {
-        // Validasi input dari formulir registrasi koleksi
-        $request->validate([
-            'namaKoleksi' => 'required|string|max:100',
-            'jenisKoleksi' => 'required|integer|in:1,2,3',
-            'createdAt' => 'required|date',                                         // Nama : Putri Rahel Patrisia
-                                                                                    // Nim : 6706223161
-            
-            'jumlahKoleksi' => 'required|integer',
-        ]);
+{
+    // Validasi input dari formulir registrasi koleksi
+    $request->validate([
+        'namaKoleksi' => 'required|string|max:100',
+        'jenisKoleksi' => 'required|integer|in:1,2,3',
+        'created_at' => 'required|date',                                                   
+        'jumlahKoleksi' => 'required|integer',
+    ]);
 
-        // Simpan data koleksi ke dalam database
-        Collection::create([
-            'namaKoleksi' => $request->namaKoleksi,
-            'jenisKoleksi' => $request->jenisKoleksi,
-            'createdAt' => $request->createdAt,
-            'jumlahKoleksi' => $request->jumlahKoleksi,
-        ]);
+    // Simpan data koleksi ke dalam database
+    Collection::create([
+        'namaKoleksi' => $request->namaKoleksi,
+        'jenisKoleksi' => $request->jenisKoleksi,
+        'created_at' => $request->created_at,
+        'jumlahKoleksi' => $request->jumlahKoleksi,
+    ]);
 
-        return redirect()->route('koleksi.daftarKoleksi')->with('success', 'Koleksi berhasil ditambahkan.');
-    }
+    return redirect()->route('koleksi.daftarKoleksi')->with('success', 'Koleksi berhasil ditambahkan.');
+}
 
     public function show(Collection $collection)
     {

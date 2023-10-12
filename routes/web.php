@@ -5,17 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CollectionController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -36,12 +25,8 @@ Route::get('/user', [UserController::class, 'index'])->name('user.daftarPengguna
 Route::get('/userRegistration', [UserController::class, 'create'])->name('user.registrasi');
 Route::post('/userStore', [UserController::class, 'store'])->name('user.infoPengguna');
 Route::get('/userView/{user}', [UserController::class, 'show'])->name('user.infoPengguna');
-
 Route::get('/koleksi', [CollectionController::class, 'index'])->name('koleksi.daftarKoleksi');
-Route::get('/koleksiTambah', [CollectionController::class, 'create'])->name('koleksi.registrasi');
+Route::match(['get', 'post'], '/koleksiTambah', [CollectionController::class, 'create'])->name('koleksi.registrasi');
 Route::post('/koleksiStore', [CollectionController::class, 'store'])->name('koleksi.store');
 Route::get('/koleksiView/{collection}', [CollectionController::class, 'show'])->name('koleksi.infoKoleksi');
-
-//Nama : Putri Rahel Patrisia
-//Nim : 6706223161
 
