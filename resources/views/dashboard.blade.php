@@ -30,6 +30,9 @@
                 <a href="{{ route('koleksi.registrasi') }}" class="p-6 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-600 transition duration-300">
                     <h3 class="text-xl font-semibold dark:text-gray-200">Tambah Data Koleksi</h3>
                 </a>
+                <a href="{{ route('user.registrasi') }}" class="p-6 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-600 transition duration-300">
+                    <h3 class="text-xl font-semibold dark:text-gray-200">Tambah Data User</h3>
+                </a>
                 {{-- <a href="{{ route('koleksi.infoKoleksi') }}" class="p-6 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-600 transition duration-300">
                     <h3 class="text-xl font-semibold dark:text-gray-200">Lihat Data Koleksi</h3>
                 </a> --}}

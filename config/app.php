@@ -155,6 +155,11 @@ return [
     */
 
     'providers' => [
+        // ...
+        Yajra\DataTables\DataTablesServiceProvider::class,
+    ],
+
+    'providers' => [
 
         /*
          * Laravel Framework Service Providers...

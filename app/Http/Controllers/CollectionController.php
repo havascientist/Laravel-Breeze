@@ -43,4 +43,33 @@ class CollectionController extends Controller
     {
         return view('koleksi.infoKoleksi', compact('collection'));
     }
+
+    public function getAllCollections(){
+        $collections = DB::table('collections')
+        ->select(
+            'id as id',
+            'nama as judul',
+            DB::raw('
+            CASE
+            WHEN jenis="1" THEN "Buku"
+            WHEN jenis="2" THEN "Majalah"
+            WHEN jenis="3" THEN "Cakram Digital"
+            END AS jenis
+            '),
+            'jumlah as jumlah'
+        )
+        ->orderBy('nama', 'asc')
+        ->get();
+
+        return Datatables::of($collections)
+        -> addColumn('action', function ($collection){
+            $html = '
+            <button data-rowid="" class=" btn btn-xs btn-light" data-toggle="tooltip" data-placement="top" data-container="body" title="Edit Koleksi" onclick="infoKoleksi('."'".$collection->id."'".')>
+            <i class="fa fa-edit"></i>
+            ';
+            return $html;
+        })
+        -> make (true);
+    }
+
 }

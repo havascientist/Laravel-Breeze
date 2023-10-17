@@ -30,3 +30,5 @@ Route::match(['get', 'post'], '/koleksiTambah', [CollectionController::class, 'c
 Route::post('/koleksiStore', [CollectionController::class, 'store'])->name('koleksi.store');
 Route::get('/koleksiView/{collection}', [CollectionController::class, 'show'])->name('koleksi.infoKoleksi');
 
+Route::get('/getAllCollections', [CollectionController::class, 'getAllCollections'])->middleware(['auth', 'verified']);
+
