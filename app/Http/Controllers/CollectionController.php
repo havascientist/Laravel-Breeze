@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Yajra\DataTables\DataTables;
+use App\Models\Koleksi;
 use App\Models\Collection;
 use Illuminate\Http\Request;
 
@@ -9,9 +11,14 @@ class CollectionController extends Controller
 {
     public function index()
     {
-        $collections = Collection::all();
-        return view('koleksi.daftarKoleksi', compact('collections'));
+        return view('koleksi.daftarKoleksi');
     }
+
+    public function getKoleksi(){
+        $data = Collection::all();
+        return Datatables::of($data)->make(true);
+    }
+
 
     public function create()
     {
@@ -43,33 +50,7 @@ class CollectionController extends Controller
     {
         return view('koleksi.infoKoleksi', compact('collection'));
     }
-
-    public function getAllCollections(){
-        $collections = DB::table('collections')
-        ->select(
-            'id as id',
-            'nama as judul',
-            DB::raw('
-            CASE
-            WHEN jenis="1" THEN "Buku"
-            WHEN jenis="2" THEN "Majalah"
-            WHEN jenis="3" THEN "Cakram Digital"
-            END AS jenis
-            '),
-            'jumlah as jumlah'
-        )
-        ->orderBy('nama', 'asc')
-        ->get();
-
-        return Datatables::of($collections)
-        -> addColumn('action', function ($collection){
-            $html = '
-            <button data-rowid="" class=" btn btn-xs btn-light" data-toggle="tooltip" data-placement="top" data-container="body" title="Edit Koleksi" onclick="infoKoleksi('."'".$collection->id."'".')>
-            <i class="fa fa-edit"></i>
-            ';
-            return $html;
-        })
-        -> make (true);
-    }
-
 }
+// Nama : Putri Rahel Patrisia
+// NIM : 6706223161
+

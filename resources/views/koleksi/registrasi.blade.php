@@ -36,7 +36,8 @@
                                     <button type="submit" class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:ring focus:ring-blue-300">
                                         Tambah Koleksi
                                     </button>
-
+{{-- Nama : Putri Rahel Patrisia
+                        Nim : 6706223161  --}}
                                 </form>
                             </div>
                         </div>
@@ -45,39 +46,4 @@
             </div>
         </div>
     </div>
-
-    {{-- <script>
-        var jenisKoleksiDropdown = document.getElementById('jenisKoleksi');
-        var formElement = document.querySelector('form');
-
-        jenisKoleksiDropdown.addEventListener('change', function() {
-            var selectedValue = jenisKoleksiDropdown.value;
-            var textColor = '';
-            var backgroundColor = '';
-
-            // Tentukan warna teks dan latar belakang berdasarkan nilai yang dipilih
-            switch(selectedValue) {
-                case '1': // Buku
-                    textColor = 'white';
-                    backgroundColor = 'blue';
-                    break;
-                case '2': // Majalah
-                    textColor = 'black';
-                    backgroundColor = 'yellow';
-                    break;
-                case '3': // Cakram Digital
-                    textColor = 'white';
-                    backgroundColor = 'green';
-                    break;
-                default:
-                    textColor = 'black';
-                    backgroundColor = 'white';
-                    break;
-            }
-
-            // Terapkan warna teks dan latar belakang pada elemen formulir
-            formElement.style.color = textColor;
-            formElement.style.backgroundColor = backgroundColor;
-        });
-    </script> --}}
 </x-app-layout>

@@ -1,5 +1,8 @@
 <?php
 
+
+use App\DataTables\KoleksiDataTable;
+use App\Http\Controllers\KoleksiController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -22,13 +25,18 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('/user', [UserController::class, 'index'])->name('user.daftarPengguna');
+Route::get('/getData', [UserController::class, 'getData'])->name('user.getData');
 Route::get('/userRegistration', [UserController::class, 'create'])->name('user.registrasi');
 Route::post('/userStore', [UserController::class, 'store'])->name('user.infoPengguna');
 Route::get('/userView/{user}', [UserController::class, 'show'])->name('user.infoPengguna');
-Route::get('/koleksi', [CollectionController::class, 'index'])->name('koleksi.daftarKoleksi');
 Route::match(['get', 'post'], '/koleksiTambah', [CollectionController::class, 'create'])->name('koleksi.registrasi');
 Route::post('/koleksiStore', [CollectionController::class, 'store'])->name('koleksi.store');
 Route::get('/koleksiView/{collection}', [CollectionController::class, 'show'])->name('koleksi.infoKoleksi');
 
-Route::get('/getAllCollections', [CollectionController::class, 'getAllCollections'])->middleware(['auth', 'verified']);
+Route::get('/koleksi', [CollectionController::class, 'index'])->name('koleksi.daftarKoleksi');
+Route::get('/getKoleksi', [CollectionController::class, 'getKoleksi'])->name('getKoleksi');
+
+// Nama : Putri Rahel Patrisia
+// NIM : 6706223161
+
 

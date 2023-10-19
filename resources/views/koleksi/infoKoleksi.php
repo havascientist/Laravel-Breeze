@@ -10,10 +10,8 @@
 <p>Nama Koleksi: {{ $collection->nama_koleksi }}</p>
 <p>Jenis Koleksi: {{ $collection->jenis_koleksi }}</p>
 <p>Jumlah Koleksi: {{ $collection->jumlah_koleksi }}</p>
-<!-- Tampilkan informasi lainnya sesuai kebutuhan -->
 
+{{-- Nama : Putri Rahel Patrisia
+                        Nim : 6706223161  --}}
 </body>
 </html>
-
-// -- Nama : Putri Rahel Patrisia
-// -- Nim : 6706223161

@@ -11,6 +11,7 @@ class Collection extends Model
 
     public $timestamps = false; // Menyatakan bahwa tabel tidak memiliki kolom waktu standar
 
+    protected $table = 'collections';
     protected $fillable = [
         'namaKoleksi',
         'jenisKoleksi',

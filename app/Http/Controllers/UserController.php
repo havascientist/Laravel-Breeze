@@ -1,16 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Yajra\DataTables\DataTables;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index()
-    {
-        $users = User::all();
-        return view('user.daftarPengguna', compact('users'));
+    public function index() {
+        return view('user.daftarPengguna');
+    }
+
+    public function getData(){
+        $data = User::all();
+        return Datatables::of($data)->make(true);
     }
 
     public function create()
