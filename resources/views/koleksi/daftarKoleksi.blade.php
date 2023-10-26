@@ -1,3 +1,9 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Daftar Koleksi') }}
+        </h2>
+    </x-slot>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,12 +14,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-    <x-app-layout>
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('Daftar Koleksi') }}
-            </h2>
-        </x-slot>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-grey dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -26,7 +26,7 @@
                         <th>Nama Koleksi</th>
                         <th>Jenis Koleksi</th>
                         <th>Jumlah Koleksi</th>
-                        <th>Lihat Detail</th> 
+                        <th>Opsi</th> 
                     </tr>
                 </thead>
             </table>
@@ -34,11 +34,10 @@
         </div>
     </div>
 </div>
-</x-app-layout>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script>
-   $(document).ready(function() {
+    $(document).ready(function() {
     $('#myTable').DataTable({
         processing: true,
         serverSide: true,
@@ -65,7 +64,7 @@
             {
                     data: null,
                     render: function (data) {
-                        return '<a href="' + "{{ route('koleksi.infoKoleksi', '') }}" + '/' + data.id + '"><i class="bi bi-eye"></i></a>';
+                        return '<a href="' + "{{ route('koleksi.infoKoleksi', '') }}" + '/' + data.id + '"><i class="bi bi-pencil-square"></i></a>';
                     },
                     orderable: false,
                     searchable: false
@@ -76,3 +75,4 @@
 </script>
 </body>
 </html>
+</x-app-layout>

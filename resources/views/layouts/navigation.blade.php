@@ -19,7 +19,7 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('koleksi.daftarKoleksi')" :active="request()->routeIs('koleksi.daftarKoleksi')">
-                        {{ __('Daftar Koleksi') }}
+                        {{ __('Tampilkan Daftar Koleksi') }}
                     </x-nav-link>
                 </div>
 

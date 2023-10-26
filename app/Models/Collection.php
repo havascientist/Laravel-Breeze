@@ -9,7 +9,7 @@ class Collection extends Model
 {
     use HasFactory;
 
-    public $timestamps = false; // Menyatakan bahwa tabel tidak memiliki kolom waktu standar
+    public $timestamps = false;
 
     protected $table = 'collections';
     protected $fillable = [
@@ -21,7 +21,7 @@ class Collection extends Model
     
     
 
-    protected $createdAt = 'createdAt'; // Menyatakan bahwa 'createdAt' adalah kolom waktu khusus
+    protected $createdAt = 'createdAt'; \
 }
 
 

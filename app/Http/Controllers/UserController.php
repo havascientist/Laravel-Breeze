@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Yajra\DataTables\DataTables;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -22,15 +23,13 @@ class UserController extends Controller
     }
 
     public function store(Request $request)
-    {
-        // Validasi input dari formulir registrasi
+    {      
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users|max:255',
             'password' => 'required|string|max:255',
         ]);
 
-        // Simpan data pengguna ke dalam database
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -43,6 +42,30 @@ class UserController extends Controller
     public function show(User $user)
     {
         return view('user.infoPengguna', compact('user'));
+    }
+
+    public function update(Request $request, User $users)
+    {
+        $request->validate([
+            'username' => 'required',
+            'fullname' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+            'address' => 'required',
+            'birthdate' => 'required|date',
+            'phoneNumber' => 'required',
+            'agama' => 'required',
+            'jenisKelamin' => 'required|in:0,1',
+        ]);        
+        $affacted = DB::table('users')->where('id', $request->id)->update([
+            'fullname' => $request->fullname, 
+            'password' => Hash::make($request->password),  
+            'address' => $request->address, 
+            'phoneNumber' => $request->phoneNumber, 
+        ]
+        );
+        
+        return redirect()->route('user.daftarPengguna')->with('success', 'Pengguna berhasil diperbarui.');
     }
 }
 // -- Nama : Putri Rahel Patrisia
