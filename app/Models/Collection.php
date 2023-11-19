@@ -21,7 +21,7 @@ class Collection extends Model
     
     
 
-    protected $createdAt = 'createdAt'; \
+    protected $createdAt = 'createdAt'; 
 }
 
 

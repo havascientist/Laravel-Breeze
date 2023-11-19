@@ -35,6 +35,18 @@
                     </x-nav-link>
                 </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('daftarTransaksi')" :active="request()->routeIs('user.registrasi')">
+                        {{ __('Tampilkan Daftar Transaksi') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('transaksiTambah')" :active="request()->routeIs('user.registrasi')">
+                        {{ __('Tambah Transaksi') }}
+                    </x-nav-link>
+                </div>
+
 
 
 {{-- 

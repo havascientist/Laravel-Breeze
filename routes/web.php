@@ -35,3 +35,31 @@ Route::put('/userUpdate', [UserController::class, 'update'])->name('user.update'
 
 Route::get('/koleksi', [CollectionController::class, 'index'])->name('koleksi.daftarKoleksi');
 Route::get('/getKoleksi', [CollectionController::class, 'getKoleksi'])->name('getKoleksi');
+
+
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\DetailTransactionController;
+
+route::get('/transaksi',[TransactionController::class, 'index'])->middleware(['auth', 'verified'])->name('daftarTransaksi');
+route::get('/transaksiTambah', [TransactionController::class, 'create'])->middleware(['auth', 'verified'])->name('transaksiTambah');
+
+route::get('/getAllTransactions',[TransactionController::class, 'getAllTransactions'])->middleware(['auth', 'verified'])->name('getAllTransactions');
+route::post('/transaksiStore',[TransactionController::class, 'store'])->middleware(['auth', 'verified'])->name('transaksiStore');
+route::get('/transaksiView/{id}',[TransactionController::class, 'show'])->middleware(['auth', 'verified'])->name('infoTransaksi');
+
+//Detail
+Route::get('/getAllDetailTransactions/{id}',[DetailTransactionController::class, 'getAllDetailTransactions'])->middleware(['auth', 'verified'])->name('detailTransaksi');
+Route::get('/detailTransaksiKembali/{id}', [DetailTransactionController::class, 'edit'])->name('detailTransaksi.pengembalian');
+Route::put('detailTransaksitransaksiUpdate', [DetailTransactionController::class, 'update'])->name('detailTransaksi.update');
+// Route::get('/transaksi', [TransactionController::class, 'index'])->name('transaction.daftarTransaksi');
+// route::get('/transaksi', [TransactionController::class, 'index'])->middleware(['auth', 'verified'])->name('transaksi');
+// route::get('/getAllTransactions', [TransactionController::class, 'getAllTransactions'])->middleware(['auth', 'verified']);
+
+// Route::get('/transaksiTambah', [TransactionController::class, 'create'])->name('transaction.transaksiTambah');
+// Route::post('/transaksiStore', [TransactionController::class, 'store'])->name('transaction.daftarTransaksi');
+// Route::get('/transaksiView/{transaction}', [TransactionController::class, 'show'])->name('transaction.transaksiView');
+
+// Route::get('/detailTransactionKembalikan/{detailTransactionId}', [DetailTransactionController::class, 'detailTransactionKembalikan'])->name('detailTransaction.detailTransactionKembalikan');
+// Route::post('/detailTransactionUpdate', [DetailTransactionController::class, 'update'])->name('transaction.transaksiView');
+
+

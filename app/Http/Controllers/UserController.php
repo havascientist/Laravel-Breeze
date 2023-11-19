@@ -1,27 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-use Yajra\DataTables\DataTables;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
 {
     public function index() {
         return view('user.daftarPengguna');
     }
-
     public function getData(){
         $data = User::all();
         return Datatables::of($data)->make(true);
     }
-
     public function create()
     {
         return view('user.registrasi');
     }
-
     public function store(Request $request)
     {      
         $request->validate([
@@ -38,12 +35,10 @@ class UserController extends Controller
 
         return redirect()->route('user.daftarPengguna')->with('success', 'Pengguna berhasil terdaftar.');
     }
-
     public function show(User $user)
     {
         return view('user.infoPengguna', compact('user'));
     }
-
     public function update(Request $request, User $users)
     {
         $request->validate([
@@ -64,7 +59,6 @@ class UserController extends Controller
             'phoneNumber' => $request->phoneNumber, 
         ]
         );
-        
         return redirect()->route('user.daftarPengguna')->with('success', 'Pengguna berhasil diperbarui.');
     }
 }
